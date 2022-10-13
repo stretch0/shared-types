@@ -1,11 +1,9 @@
 name: Publish
 
 on:
-  release:
-    types:
-      - created
-  repository_dispatch:
-    types: [publish]
+  push:
+    branches:
+      - main
 
 jobs:
   publish:
