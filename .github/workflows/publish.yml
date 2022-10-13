@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
+          registry-url: 'https://registry.npmjs.org'
       
       - name: Install semantic-release plugins
         run: npm i --no-save @semantic-release/changelog @semantic-release/git conventional-changelog-conventionalcommits
@@ -27,6 +28,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: npm run build
-      - run: npm publish
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
