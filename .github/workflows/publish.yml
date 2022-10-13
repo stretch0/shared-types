@@ -25,13 +25,6 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16.x"
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@azzurri-group"
 
       - run: npm run build
       - run: npm publish
